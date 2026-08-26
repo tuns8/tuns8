@@ -5,8 +5,15 @@
 Building infrastructure as code and loves sharing knowledge to help others
 
 
+
 # 💫 About Me:
 - :computer: DevOps Engineer<br>- Azure<br><br>What I work with<br>- **Cloud:** Microsoft Azure (primary)<br>- **IaC:** Terraform (azurerm provider)<br>- **CI/CD:** Azure DevOps — YAML pipelines, Universal Packages, multi-environment promotion
+
+## Featured
+Terraform implementation of Power Platform VNet integration and enterprise policy 
+deployment using native azurerm ARM deployment templates — no azapi provider required. 
+Includes subnet delegation and dual-region enterprise policy creation, reflecting 
+production patterns from government client delivery.
 
 
 # 💻 Tech Stack:
