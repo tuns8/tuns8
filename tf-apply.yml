@@ -1,0 +1,50 @@
+trigger:
+  branches:
+    include:
+    - "master"
+  paths:
+    include:
+    - dev.tfvars
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  rg-grp: "tuns-sandbox-rg"
+  bkstg: "tuns8storageaccount"
+  bkcontainer: "tfsate"
+  bkstrgkey: "devopspiple.terraform.tfsate"
+
+stages:
+  - stage: Deploy
+    jobs:
+      - job: Apply
+        steps:
+          - task: PowerShell@2
+            displayName: check public ip
+            inputs:
+              targetType: 'inline'
+              script: 'Invoke-RestMethod http://ipinfo.io/json | Select -exp ip'
+          - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+            displayName: Terraform install
+            inputs:
+              terraformVersion: "latest"
+          - task: TerraformTaskV4@4
+            displayName: Terraform init
+            inputs:
+              provider: "azurerm"
+              command: "init"
+              backendServiceArm: "mysubscription-ukddc-act-azuresub"
+              backendAzureRmResourceGroupName: "$(rg-grp)"
+              backendAzureRmStorageAccountName: "$(bkstg)"
+              backendAzureRmContainerName: "$(bkcontainer)"
+              backendAzureRmKey: "$(bkstrgkey)"
+              backendAzureRmResourceGroupLocation: uksouth
+              ensureBackend: true
+          - task: TerraformTaskV4@4
+            displayName: Terraform Apply
+            inputs:
+              provider: "azurerm"
+              command: "apply"
+              commandOptions: "-var-file=dev.tfvars"
+              environmentServiceNameAzureRM: "mysubscription-ukddc-act-azuresub"
