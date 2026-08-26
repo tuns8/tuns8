@@ -39,14 +39,6 @@ data "azurerm_network_service_tags" "azure_cloud" {
 
 }
 
-data "local_file" "start_script" {
-  filename = "${path.module}/files/start-runbook.ps1"
-}
-
-data "local_file" "stop_script" {
-  filename = "${path.module}/files/stop-runbook.ps1"
-}
-
 
 
 
