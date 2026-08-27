@@ -99,7 +99,7 @@ variable "nacls_default_action" {
 
 variable "allowed_ips" {
   type = list(string)
-  default = [ "52.56.62.128/25" ]
+  default = [ "enter your publiv ip address with cidr" ]
   description = "(Optional)List. List of whitelisted IPs allowed to access the key vault. If restricting incoming traffic nacls_default_action should be set to 'Deny'. Defaults to the POISE network CIDR range"
 }
 
