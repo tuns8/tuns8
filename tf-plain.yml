@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  rg-grp: "tunssandbox-rg"
+  rg-grp: "tuns8storageaccount"
   bkstg: "tuns8storageaccount"
   bkcontainer: "tfsate"
   bkstrgkey: "devopspiple.terraform.tfsate"
