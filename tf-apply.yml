@@ -34,7 +34,7 @@ stages:
             inputs:
               provider: "azurerm"
               command: "init"
-              backendServiceArm: "mysubscription-ukddc-act-azuresub"
+              backendServiceArm: "mysubscription-azuresub"
               backendAzureRmResourceGroupName: "$(rg-grp)"
               backendAzureRmStorageAccountName: "$(bkstg)"
               backendAzureRmContainerName: "$(bkcontainer)"
@@ -47,4 +47,4 @@ stages:
               provider: "azurerm"
               command: "apply"
               commandOptions: "-var-file=dev.tfvars"
-              environmentServiceNameAzureRM: "mysubscription-ukddc-act-azuresub"
+              environmentServiceNameAzureRM: "mysubscription-azuresub"
