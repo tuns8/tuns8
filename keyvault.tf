@@ -20,7 +20,7 @@ allowed_ips = distinct(flatten(
 resource "azurerm_role_assignment" "funct_secrete_access" {
   scope              = module.keyvault.id
   role_definition_id = join("", [data.azurerm_subscription.current.id, data.azurerm_role_definition.vault_admin.id])
-  principal_id       = "dca80399-4692-4e70-9464-25ee5eae538a"
+  principal_id       = ""0000c-0000-4e6f-00ee-000000bdb18" #example ids
 }
 
 resource "azurerm_role_assignment" "fa_ma_access" {
@@ -32,10 +32,10 @@ resource "azurerm_role_assignment" "fa_ma_access" {
 
 
 
-resource "azurerm_role_assignment" "funct_secrete_access_tunde" {
+resource "azurerm_role_assignment" "funct_secrete_access_tuns8" {
   scope              = module.keyvault.id
   role_definition_id = join("", [data.azurerm_subscription.current.id, data.azurerm_role_definition.vault_admin.id])
-  principal_id       = "424d146c-9841-4e6f-9e73-447cb69cdb29"
+  principal_id       = "0000c-0000-4e6f-00ee-000cb69cdb29" #example ids
 }
 
 
